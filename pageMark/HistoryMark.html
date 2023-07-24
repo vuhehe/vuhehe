@@ -1,0 +1,29 @@
+<br><br><br><br>
+<div class="table-container" ng-controller="markCtrl">
+  <table>
+    <thead>
+      <tr>
+        <th>Môn Học</th>
+        <th>Điểm</th>
+        <th>Xếp Loại</th>
+        <th>Ngày Làm</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="it in listMark" id="myElement">
+        
+        <td>{{it.subject}}</td>
+        <td>{{it.mark}}</td>
+        <td ng-if='it.mark < 4'>Yếu</td>
+        <td ng-if="it.mark == 5 || (it.mark > 5 && it.mark < 7)">Khá</td>
+        <td ng-if='it.mark > 7 '>Giỏi</td>
+        <td>{{it.day}}</td>
+        <td><a ng-click="delete($index)">Xóa</a></td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,78 @@
+<br><br><br><br><br><br>
+<div class="container">
+  <form ng-controller="AdminCtrl" style="border-style: outset;">
+    <div class="form-group" style="background-color: aliceblue;">
+      <div class>
+        <br><br>
+        <div ng-show="!display">
+          <div class="form-group col-12 ">
+            <br>
+            Nhập Mật Khẩu Để Tiếp Tục <br>
+            <br>
+            <input type="text" class="form-control" ng-model="info.Password">
+          </div>
+          <p id="checkPass" style="color: red; margin-left: 17px;"></p>
+
+        </div>
+        <div ng-show="display" style="margin-left: 210px;">
+
+          <br>
+          <div class="form-group col-9">
+
+            Tài Khoản <br>
+            <input type="text" class="form-control" ng-model="info.us" ng-value="acc.uname">
+          </div>
+          <br>
+          <div class="form-group col-9">
+
+            Mật Khẩu Mới <br>
+            <input type="text" class="form-control" ng-model="info.newPass" value="{{acc.psw}}">
+          </div>
+          <br>
+          <div class="form-group col-9">
+            Nhập Lại Mật Khẩu <br>
+            <input type="text" class="form-control" ng-model="info.confimPass">
+            <span id="checkMk" style="color: red;"></span>
+          </div>
+          <!-- Nhập Mã Xác Nhận -->
+          <div class="row" style="margin-left: 1px;">
+            <div class="form-group col-6">
+              Nhập Mã Xác Nhận
+              <br>
+
+              <input type="text" class="form-control" ng-model="info.myConfim">
+              <span id="checkMXN" style="color: red;"></span>
+
+            </div>
+            <div class="form-group col-3">
+              Mã Xác Nhận <br>
+              <input type="text" class="form-control" value="{{otp}}">
+
+            </div>
+            <div class="form-group col-1">
+              <br>
+              <button class="btn btn-warning" ng-click="resetOtp()">&#8630;</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="text-center">
+        <div ng-show="!display">
+          <button class="btn btn-dark ml-2 px-4" ng-click="confim()" ng-disabled="!info.Password"><i
+              class="bi bi-save-fill"></i>&nbsp; Xác
+            Nhận</button>
+
+        </div>
+
+        <div ng-show="display">
+          <button class=" btn btn-dark ml-2 px-4" ng-disabled="!info.myConfim" ng-click="update()" id><i
+              class="bi bi-save-fill"></i>&nbsp; Cập Nhật</button>
+          <button class="btn btn-success m-2 px-4 text-white"><i class="bi bi-x-square-fill"></i> Hủy</button>
+
+        </div> <br><br>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,128 @@
+<style>
+    
+body {
+  // background: #fff;
+  // font-size: 1em;
+  // line-height: 1.5em;
+  // color: #8d9aa5;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:focus, a:hover {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.photo-container {
+  background-image: url(https://images.unsplash.com/photo-1450542814732-e210d1b7b938?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=);
+  background-size: cover;
+  height: 100vh;
+  background-position-x: 50%;
+  background-position-y: center;
+  box-shadow: inset 0px 0px 0 2000px rgba(0,0,0,0.5);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  color: black;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-family: 'Lobster Two', cursive;
+  font-style: italic;
+  font-size: 4em;
+  line-height: 1.2em;
+  top: 80px;
+}
+
+/*Bootstrap button outline override*/
+.btn-outline {
+    width: 140px;
+    // text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background-color: transparent;
+    padding: 12px 22px;
+    margin: 10px 20px;
+    color: inherit;
+    transition: all .5s;
+    border: 1.5px solid #fff;
+    border-radius: 24px;
+    outline: none;
+}
+
+.btn-secondary.btn-outline {
+    color: #fff;
+}
+
+// .btn-secondary.btn-outline {
+//     color: #fff;
+// }
+
+.btn-secondary.btn-outline:hover {
+    color: #aaa;
+    // border: 2px solid #555555;
+}
+.btn-secondary.btn-outline:focus {
+  outline: none;
+  color: #aaa;
+  // background-color: transparent;
+}
+
+
+#output {
+  margin-top: 20px;
+  color: black;
+  position: relative;
+  padding: 30px;
+  background-color: white;
+  opacity: 0.5;
+  font-family: 'Raleway', sans-serif;
+  border-radius: 15px;
+}
+
+ol {
+  margin: 0 0 20px 32px;
+  padding: 0;
+}
+
+li {
+  color: black;
+  padding: 8px 0;
+  display: list-item;
+  width: 100%;
+  margin: 0;
+  // counter-increment: step-counter;
+}
+
+
+</style>
+<body>
+    <div class="photo-container">
+      <div class="flex-container container">
+        <h1>Famous Landmarks Trivia Quiz</h1>
+        <row>
+          <button type="button" class="btn btn-secondary btn-outline col-sm-2"><a class="launch-quiz" href=#>Start Quiz</a></button>
+  <!--       <button type="button" class="btn btn-secondary btn-outline btn-round"><a class="play-again" href=#>Back to Portfolio</a></button> -->
+          <input type="button" class="btn btn-secondary btn-outline col-sm-2" value="Clear Answers" onClick="history.go(0)">
+        </row>
+        
+        
+  <!--       <button type="button" class="btn btn-secondary btn-outline btn-round">Launch Quiz</button> -->
+      </div>
+    </div>
+    
+  <!-- <script src="js/quiz.js"></script> -->
+  </body>
+  <!-- </html> -->

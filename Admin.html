@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <!doctype html>
+  <html lang="en">
+
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/icons-1.10.3/icons-1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="agular.js"></script>
+    <script src="javascript/Admin.js"></script>
+  </head>
+  <style>
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid #000000;
+
+    }
+
+
+  </style>
+<br><br><br>
+  <body ng-app="docsSimpleDirective" ng-controller="AdminCtrl">
+    <div class="container shadow border rounded mt-3 py-2">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab"
+            aria-controls="home" aria-selected="true">Cật nhật</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab"
+            aria-controls="profile" aria-selected="false">Thay Đổi Tài Khoản</button>
+        </li>
+
+      </ul>
+      <div class="tab-content" id="myTabContent" style="background-color: beige;">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="card" style="background-color: azure">
+            <div class="card-header">
+              <i class="bi bi-pencil-square"></i>
+              Thông Tin Tài Khoản
+            </div>
+            <div class="container text-center" style="margin-top:70px;">
+              <div class="">
+                <img class="avatar"
+                  src="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-6/329988651_6655767221119124_6106624837613205726_n.jpg?stp=dst-jpg_s960x960&_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=l9cpD4EWov0AX_z463U&tn=RGiPTsjpp-wRAIEM&_nc_ht=scontent.fdad3-4.fna&oh=00_AfABJX70TgxF4lghHgUY_TOhRgFTSd4eGEzrOrr8DKeXZg&oe=63F7F744"
+                  alt="Avatar">
+              </div>
+              <br>
+              <h1>
+                Tài Khoản : Teo <br><br>
+              </h1>
+            </div>
+            <!-- ? -->
+
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="container">
+            <div class="card">
+              <div class="card-header">
+                <i class="bi bi-list-task"></i> Cập Nhật Tài Khoản
+              </div>
+              <form>
+                <div class style="margin-left: 250px;">
+                  <br><br>
+                  <div ng-show="!display">
+                    <div class="form-group col-12 ">
+                      <br>
+                      Nhập Mật Khẩu Để Tiếp Tục <br>
+                      <br>
+                      <input type="text" class="form-control" ng-model="info.confimPass">
+                    </div>
+                  </div>
+                  <div ng-show="display">
+
+                    <br>
+                    <div class="form-group col-9">
+
+                      Tài Khoản <br>
+                      <input type="text" class="form-control"  value="{{acc.uname}}">
+                    </div>
+                    <br>
+                    <div class="form-group col-9">
+
+                      Mật Khẩu <br>
+                      <input type="text" class="form-control"  value="{{acc.psw}}">
+                    </div>
+                    <br>
+                    <div class="form-group col-6">
+                      Nhập mkms
+                      <br>
+                      <input type="text" class="form-control" ng-model="info.newPass">
+                    </div>
+                    <!-- Nhập Mã Xác Nhận -->
+                    <div class="row" style="margin-left: 1px;">
+                      <div class="form-group col-6">
+                        Nhập Mã Xác Nhận
+                        <br>
+                        <input type="text" class="form-control" ng-model="info.myConfim">
+                      </div>
+                     
+                      <div class="form-group col-3">
+                        Mã Xác Nhận <br>
+                          <input type="text" class="form-control"  value="{{otp}}">
+                      
+                      </div>
+                      <div class="form-group col-1" >
+                        <br>
+                        <button class="btn btn-warning" ng-click="resetOtp()">&#8630;</button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="text-center">
+                  <div ng-show="!display">
+                    <button class="btn btn-dark ml-2 px-4" ng-click="confim()"><i class="bi bi-save-fill"></i>&nbsp; Xác
+                      Nhận</button>
+
+                  </div>
+
+                  <div ng-show="display">
+                    <button class=" btn btn-dark ml-2 px-4" ng-disabled="!info.myConfim" ng-click="update()" id><i
+                        class="bi bi-save-fill"></i>&nbsp; Cập Nhật</button>
+                    <button class="btn btn-success m-2 px-4 text-white"><i class="bi bi-x-square-fill"></i> Hủy</button>
+
+                  </div> <br><br>
+                </div>
+            </div>
+          </div>
+          </form>
+          <div class="card-footer">
+            <!--  -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

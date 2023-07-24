@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Online QUIZ</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="agular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <!-- bostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="h.js"></script>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="pageMark/css/tableMark.css">
+
+    <script src="javascript/app.js"></script>
+
+    <script src="pageMark/js/getMark.js"></script>
+    <script src="javascript/Admin.js"></script>
+    <script src="javascript/login.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            color: #222;
+        }
+
+        /* Hiển thị phần tử trung tâm trên màn hình */
+        .alert {
+            position: fixed;
+            z-index: 9999;
+            /* Đặt vị trí trung tâm của phần tử */
+            left: 50%;
+            top: 50%;
+            /* Đặt kích thước và khoảng cách từ lề trái và lề trên */
+            width: 400px;
+            padding: 20px;
+            margin-left: -200px;
+            margin-top: -50px;
+            /* Thêm hình nền và định dạng văn bản */
+            background-color: #f1f1f1;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #888;
+        }
+
+        /* Đóng thông báo */
+        .closebtn {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .closebtn:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        #menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+            z-index: 999;
+        }
+
+        #menu ul {
+            background: #191b1a;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        #menu li {
+            color: #d5cccc;
+            display: inline-block;
+            width: 170px;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        #menu ul li a {
+            text-decoration: none;
+            color: #F1F1F1;
+            display: block;
+        }
+
+        #menu ul li a:hover {
+            background: #F1F1F1;
+            color: #0C0A0A;
+        }
+
+        #menu ul li>.sub-menu {
+            display: none;
+            position: absolute;
+        }
+
+        #menu li {
+            position: relative;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+        }
+
+        #menu ul li:hover .sub-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+
+    <!-- Navigation -->
+    <div id="menu" style="color: aliceblue;">
+        <ul style="font-size: 22px;">
+            <li class="">
+                <a class="page-scroll" href="Home.html">Trang Chủ</a>
+            </li>
+            <li class="">
+                <a class="page-scroll" href="PageQuiz.html#!/sub">Môn Học</a>
+            </li>
+            <li class="">
+                <a class="page-scroll" href="#!hisMark">Lịch Sử Làm Bài</a>
+            </li>
+            <li class="">
+                <a class="page-scroll" href="#!PageUs">Đổi Mật Khẩu</a>
+    </div>
+
+
+    <!-- <div></div> -->
+    <div ng-view></div>
+    <!-- go footer -->
+    <br><br>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help
+                        the upcoming programmers with the code. Scanfcode focuses on providing the most efficient
+                        code or snippets as the code wants to be simple. We will help programmers build up concepts
+                        in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap,
+                        JavaScript, PHP, Android, SQL and Algorithm.</p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+                        <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+                        <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
+                        <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+                        <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+                        <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                        <a href="#">Scanfcode</a>.
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- end footer -->
+</body>
+
+<script>
+    var radio = document.getElementById("radio-button");
+    var text = document.getElementById("text");
+    radio.addEventListener("click", function () {
+        if (radio.checked) {
+            text.style.color = "red";
+        } else {
+            text.style.color = "black";
+        }
+    });
+</script>
+<!-- <script>
+    window.addEventListener('beforeunload', function (event) {
+        alert("--");
+        event.preventDefault();
+        event.returnValue = '';
+    });
+</script> -->
+<script src="hour.js"></script>
+<script src="js/jquery-3.4.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</html>

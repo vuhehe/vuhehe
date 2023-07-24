@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Product Hover Teaser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i");
+
+    body {
+        font-family: "Open Sans", sans-serif;
+        /* margin: 40px 0; */
+        background: #efefef;
+    }
+
+    .packshootBox {
+        margin-bottom: 35px;
+        position: relative;
+        box-shadow: 0 0 10px #ccccd2;
+        display: block;
+        padding: 25px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .packshootBox .bestseller {
+        position: absolute;
+        transform: rotate(-45deg);
+        text-align: center;
+        left: -35px;
+        top: 25px;
+        width: 150px;
+        color: #fff;
+        line-height: 16px;
+        font-size: 16px;
+        padding: 8px 0;
+        background: #66a96f;
+        display: block;
+        box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .packshootBox .bestseller.color2 {
+        background: #343434;
+    }
+
+    .packshootBox .bestseller.color3 {
+        background: #12517d;
+    }
+
+    .packshootBox .bestseller.color4 {
+        background: #b91509;
+    }
+
+    .packshootBox .imageBox {
+        height: 240px;
+        text-align: center;
+    }
+
+    .packshootBox .imageBox img {
+        display: inline-block;
+    }
+
+    .packshootBox .contentBoxAfter h3 {
+        margin: 15px 0 10px 0;
+        color: #222;
+    }
+
+    .packshootBox .contentBoxAfter .stars {
+        margin-bottom: 10px;
+    }
+
+    .packshootBox .contentBoxAfter .stars i {
+        color: #ffc000;
+        font-size: 24px;
+    }
+
+    .packshootBox .contentBoxAfter .packprice {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        display: block;
+    }
+
+    .packshootBox .contentBoxAfter .old_packprice {
+        color: red;
+        font-size: 14px;
+        text-decoration: line-through;
+        display: block;
+    }
+
+    .packshootBox .hidden-content {
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+        transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+
+    .packshootBox .hidden-content .text-wrapper {
+        padding: 25px;
+    }
+
+    .packshootBox .hidden-content .text-wrapper ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        line-height: 24px;
+        font-size: 16px;
+    }
+
+    .packshootBox .hidden-content .text-wrapper ul li {
+        margin-bottom: 10px;
+    }
+
+    .packshootBox .hidden-content .text-wrapper ul li i {
+        color: #89c482;
+    }
+
+    .packshootBox .hidden-content .text-wrapper .moreButton {
+        padding: 10px 15px;
+        background: #89c482;
+        border-radius: 3px;
+        display: inline-block;
+        color: #fff;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+        margin: 20px 0;
+        font-size: 18px;
+        box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    a.packLink {
+        text-decoration: none;
+    }
+
+    a.packLink:hover {
+        text-decoration: none;
+    }
+
+    a.packLink:hover .hidden-content {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+        transition: all 0.36s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+</style>
+
+<body>
+    <br><br><br>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+        <div class="subjects" style="text-align:  center;color:rgb(26, 11, 11)"><br><br>
+            <h2>Thử Sức Với Các Ngôn Ngữ Lập Trình</h2>
+        </div>
+        <br><br>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" ng-repeat="it in list_subject">
+                <a class="packLink" target="_blank">
+                    <div class="packshootBox">
+                        <div class="bestseller">{{it.Id}}</div>
+                        <div class="hidden-content">
+                            <div class="text-wrapper">
+                                <ul>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> {{it.Name}}<br></li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i>Mã Môn {{it.Id}}</li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> Giúp Các Bạn Ôn Lại Kiến Thức Về
+                                        {{it.Name}}</li>
+                                    <!-- <a href="http://"></a> -->
+                                    
+                                    <!-- <li><i class="fa fa-check" aria-hidden="true"></i>Ấ\</li> -->
+                                </ul>
+
+                            </div>
+
+                        </div>
+                        <div class="imageBox">
+                            <img src="logos/{{it.Logo}}">
+                        </div>
+                        <div class="contentBoxAfter">
+                            <h5 style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                {{it.Name}}</h5>
+                            <div class="stars">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <button style="width: 210px;" class="btn btn-primary"> <a style="color: black;"
+                                    href="#!quiz/{{it.Id}}/{{it.Name}}" role="button" ng-click="testQuiz()">test
+                                    ngay</a>
+                            </button>
+
+                            <!-- <span class="old_packprice">vorher 19,99 EURO</span> -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src='https://use.fontawesome.com/b2576c51fb.js'></script>
+    <script>
+        $(function () {
+            $('.packshootBox').matchHeight();
+        });
+        /*
+        * jquery-match-height 0.7.2 by @liabru
+        * http://brm.io/jquery-match-height/
+        * License MIT
+        */
+        !function (t) { "use strict"; "function" == typeof define && define.amd ? define(["jquery"], t) : "undefined" != typeof module && module.exports ? module.exports = t(require("jquery")) : t(jQuery) }(function (t) {
+            var e = -1, o = -1, n = function (t) { return parseFloat(t) || 0 }, a = function (e) { var o = 1, a = t(e), i = null, r = []; return a.each(function () { var e = t(this), a = e.offset().top - n(e.css("margin-top")), s = r.length > 0 ? r[r.length - 1] : null; null === s ? r.push(e) : Math.floor(Math.abs(i - a)) <= o ? r[r.length - 1] = s.add(e) : r.push(e), i = a }), r }, i = function (e) {
+                var o = {
+                    byRow: !0, property: "height", target: null, remove: !1
+                }; return "object" == typeof e ? t.extend(o, e) : ("boolean" == typeof e ? o.byRow = e : "remove" === e && (o.remove = !0), o)
+            }, r = t.fn.matchHeight = function (e) { var o = i(e); if (o.remove) { var n = this; return this.css(o.property, ""), t.each(r._groups, function (t, e) { e.elements = e.elements.not(n) }), this } return this.length <= 1 && !o.target ? this : (r._groups.push({ elements: this, options: o }), r._apply(this, o), this) }; r.version = "0.7.2", r._groups = [], r._throttle = 80, r._maintainScroll = !1, r._beforeUpdate = null,
+                r._afterUpdate = null, r._rows = a, r._parse = n, r._parseOptions = i, r._apply = function (e, o) {
+                    var s = i(o), h = t(e), l = [h], c = t(window).scrollTop(), p = t("html").outerHeight(!0), u = h.parents().filter(":hidden"); return u.each(function () { var e = t(this); e.data("style-cache", e.attr("style")) }), u.css("display", "block"), s.byRow && !s.target && (h.each(function () {
+                        var e = t(this), o = e.css("display"); "inline-block" !== o && "flex" !== o && "inline-flex" !== o && (o = "block"), e.data("style-cache", e.attr("style")), e.css({
+                            display: o, "padding-top": "0",
+                            "padding-bottom": "0", "margin-top": "0", "margin-bottom": "0", "border-top-width": "0", "border-bottom-width": "0", height: "100px", overflow: "hidden"
+                        })
+                    }), l = a(h), h.each(function () { var e = t(this); e.attr("style", e.data("style-cache") || "") })), t.each(l, function (e, o) {
+                        var a = t(o), i = 0; if (s.target) i = s.target.outerHeight(!1); else {
+                            if (s.byRow && a.length <= 1) return void a.css(s.property, ""); a.each(function () {
+                                var e = t(this), o = e.attr("style"), n = e.css("display"); "inline-block" !== n && "flex" !== n && "inline-flex" !== n && (n = "block"); var a = {
+                                    display: n
+                                }; a[s.property] = "", e.css(a), e.outerHeight(!1) > i && (i = e.outerHeight(!1)), o ? e.attr("style", o) : e.css("display", "")
+                            })
+                        } a.each(function () { var e = t(this), o = 0; s.target && e.is(s.target) || ("border-box" !== e.css("box-sizing") && (o += n(e.css("border-top-width")) + n(e.css("border-bottom-width")), o += n(e.css("padding-top")) + n(e.css("padding-bottom"))), e.css(s.property, i - o + "px")) })
+                    }), u.each(function () { var e = t(this); e.attr("style", e.data("style-cache") || null) }), r._maintainScroll && t(window).scrollTop(c / p * t("html").outerHeight(!0)),
+                        this
+                }, r._applyDataApi = function () { var e = {}; t("[data-match-height], [data-mh]").each(function () { var o = t(this), n = o.attr("data-mh") || o.attr("data-match-height"); n in e ? e[n] = e[n].add(o) : e[n] = o }), t.each(e, function () { this.matchHeight(!0) }) }; var s = function (e) { r._beforeUpdate && r._beforeUpdate(e, r._groups), t.each(r._groups, function () { r._apply(this.elements, this.options) }), r._afterUpdate && r._afterUpdate(e, r._groups) }; r._update = function (n, a) {
+                    if (a && "resize" === a.type) {
+                        var i = t(window).width(); if (i === e) return; e = i;
+                    } n ? o === -1 && (o = setTimeout(function () { s(a), o = -1 }, r._throttle)) : s(a)
+                }, t(r._applyDataApi); var h = t.fn.on ? "on" : "bind"; t(window)[h]("load", function (t) { r._update(!1, t) }), t(window)[h]("resize orientationchange", function (t) { r._update(!0, t) })
+        });
+    </script>
+</body>
+
+</html>
